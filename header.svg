@@ -1,0 +1,270 @@
+<svg width="860" height="280" viewBox="0 0 860 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap');
+
+      .title { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; fill: #E6EDF3; letter-spacing: 3px; }
+      .subtitle { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: #7FDBFF; letter-spacing: 2px; }
+      .node-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; fill: #8B949E; letter-spacing: 1px; }
+      .node-tech { font-family: 'JetBrains Mono', monospace; font-size: 8px; fill: #58A6FF; }
+      .metric { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; fill: #7FDBFF; }
+      .metric-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; fill: #6E7681; letter-spacing: 1px; }
+      .status { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #3FB950; }
+
+      /* Node pulse */
+      .pulse { animation: pulse 2s ease-in-out infinite; }
+      .pulse2 { animation: pulse 2s ease-in-out infinite 0.4s; }
+      .pulse3 { animation: pulse 2s ease-in-out infinite 0.8s; }
+      .pulse4 { animation: pulse 2s ease-in-out infinite 1.2s; }
+      .pulse5 { animation: pulse 2s ease-in-out infinite 1.6s; }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 0.4; r: 10; }
+        50% { opacity: 1; r: 13; }
+      }
+
+      /* Data packets flowing */
+      .packet1 { animation: flow1 3s linear infinite; }
+      .packet2 { animation: flow1 3s linear infinite 1s; }
+      .packet3 { animation: flow1 3s linear infinite 2s; }
+      .packet4 { animation: flow2 3s linear infinite 0.5s; }
+      .packet5 { animation: flow2 3s linear infinite 1.5s; }
+      .packet6 { animation: flow2 3s linear infinite 2.5s; }
+      .packet7 { animation: flow3 3s linear infinite; }
+      .packet8 { animation: flow3 3s linear infinite 1.5s; }
+      .packet9 { animation: flow4 3s linear infinite 0.3s; }
+      .packet10 { animation: flow4 3s linear infinite 1.3s; }
+
+      @keyframes flow1 {
+        0% { transform: translateX(0px); opacity: 0; }
+        5% { opacity: 1; }
+        95% { opacity: 1; }
+        100% { transform: translateX(128px); opacity: 0; }
+      }
+      @keyframes flow2 {
+        0% { transform: translateX(0px); opacity: 0; }
+        5% { opacity: 1; }
+        95% { opacity: 1; }
+        100% { transform: translateX(130px); opacity: 0; }
+      }
+      @keyframes flow3 {
+        0% { transform: translateX(0px); opacity: 0; }
+        5% { opacity: 1; }
+        95% { opacity: 1; }
+        100% { transform: translateX(128px); opacity: 0; }
+      }
+      @keyframes flow4 {
+        0% { transform: translateX(0px); opacity: 0; }
+        5% { opacity: 1; }
+        95% { opacity: 1; }
+        100% { transform: translateX(130px); opacity: 0; }
+      }
+
+      /* Line glow animation */
+      .pipe-glow { animation: glow 3s ease-in-out infinite; }
+      @keyframes glow {
+        0%, 100% { stroke-opacity: 0.3; }
+        50% { stroke-opacity: 0.9; }
+      }
+
+      /* Counter animation */
+      .count-up { animation: fadeIn 1s ease-out forwards; }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Blink cursor */
+      .cursor { animation: blink 1s step-end infinite; }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      /* Scanline */
+      .scan { animation: scan 4s linear infinite; }
+      @keyframes scan {
+        0% { transform: translateY(-280px); opacity: 0.03; }
+        100% { transform: translateY(280px); opacity: 0.03; }
+      }
+    </style>
+
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D1117"/>
+      <stop offset="100%" style="stop-color:#0D1117"/>
+    </linearGradient>
+    <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#58A6FF;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#7FDBFF;stop-opacity:0.8"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7FDBFF"/>
+      <stop offset="50%" style="stop-color:#E6EDF3"/>
+      <stop offset="100%" style="stop-color:#58A6FF"/>
+    </linearGradient>
+    <filter id="glow-filter">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft-glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#58A6FF" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="280" fill="url(#bgGrad)" rx="0"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.04" stroke="#58A6FF" stroke-width="0.5">
+    <line x1="0" y1="28" x2="860" y2="28"/>
+    <line x1="0" y1="56" x2="860" y2="56"/>
+    <line x1="0" y1="84" x2="860" y2="84"/>
+    <line x1="0" y1="112" x2="860" y2="112"/>
+    <line x1="0" y1="140" x2="860" y2="140"/>
+    <line x1="0" y1="168" x2="860" y2="168"/>
+    <line x1="0" y1="196" x2="860" y2="196"/>
+    <line x1="0" y1="224" x2="860" y2="224"/>
+    <line x1="0" y1="252" x2="860" y2="252"/>
+    <line x1="86" y1="0" x2="86" y2="280"/>
+    <line x1="172" y1="0" x2="172" y2="280"/>
+    <line x1="258" y1="0" x2="258" y2="280"/>
+    <line x1="344" y1="0" x2="344" y2="280"/>
+    <line x1="430" y1="0" x2="430" y2="280"/>
+    <line x1="516" y1="0" x2="516" y2="280"/>
+    <line x1="602" y1="0" x2="602" y2="280"/>
+    <line x1="688" y1="0" x2="688" y2="280"/>
+    <line x1="774" y1="0" x2="774" y2="280"/>
+  </g>
+
+  <!-- Scanline effect -->
+  <rect class="scan" width="860" height="40" fill="white" opacity="0.03"/>
+
+  <!-- Top bar -->
+  <rect x="0" y="0" width="860" height="2" fill="url(#pipeGrad)"/>
+
+  <!-- Title section -->
+  <text x="430" y="48" text-anchor="middle" class="title" filter="url(#soft-glow)">
+    <tspan fill="url(#titleGrad)">SUNIL KUMAR REDDY</tspan>
+  </text>
+  <text x="430" y="68" text-anchor="middle" class="subtitle">DATA ENGINEER  ·  PIPELINE ARCHITECT  ·  BANGALORE, INDIA</text>
+
+  <!-- Status indicator -->
+  <circle cx="318" cy="82" r="4" fill="#3FB950" filter="url(#glow-filter)"/>
+  <circle cx="318" cy="82" r="7" fill="#3FB950" opacity="0.2">
+    <animate attributeName="r" values="4;9;4" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="330" y="86" class="status">AVAILABLE FOR HIRE</text>
+  <text x="542" y="86" class="status" fill="#6E7681">·</text>
+  <text x="552" y="86" class="node-label" fill="#6E7681">Bangalore, India<tspan class="cursor" fill="#58A6FF">_</tspan></text>
+
+  <!-- PIPELINE ARCHITECTURE — main centerpiece -->
+  <!-- Node 1: Sources -->
+  <g transform="translate(60, 130)">
+    <rect x="-36" y="-28" width="72" height="56" rx="6" fill="#161B22" stroke="#58A6FF" stroke-width="1.5" stroke-opacity="0.6"/>
+    <circle cx="0" cy="-8" r="10" fill="#58A6FF" opacity="0.15" class="pulse"/>
+    <circle cx="0" cy="-8" r="10" fill="none" stroke="#58A6FF" stroke-width="1.5" filter="url(#glow-filter)"/>
+    <text x="0" y="-4" text-anchor="middle" class="node-tech">SRC</text>
+    <text x="0" y="18" text-anchor="middle" class="node-label">SOURCES</text>
+    <text x="0" y="28" text-anchor="middle" class="node-tech" fill="#6E7681" font-size="7px">Transactions</text>
+  </g>
+
+  <!-- Arrow + pipe 1→2 -->
+  <line x1="96" y1="130" x2="188" y2="130" stroke="#58A6FF" stroke-width="2" stroke-opacity="0.4" class="pipe-glow" marker-end="url(#arrow)"/>
+  <!-- Flowing packets -->
+  <circle cx="100" cy="130" r="3" fill="#7FDBFF" class="packet1" filter="url(#glow-filter)"/>
+  <circle cx="100" cy="130" r="3" fill="#7FDBFF" class="packet2" filter="url(#glow-filter)"/>
+  <circle cx="100" cy="130" r="3" fill="#7FDBFF" class="packet3" filter="url(#glow-filter)"/>
+
+  <!-- Node 2: Kafka -->
+  <g transform="translate(224, 130)">
+    <rect x="-36" y="-28" width="72" height="56" rx="6" fill="#161B22" stroke="#FF6B35" stroke-width="1.5" stroke-opacity="0.7"/>
+    <circle cx="0" cy="-8" r="10" fill="#FF6B35" opacity="0.15" class="pulse2"/>
+    <circle cx="0" cy="-8" r="10" fill="none" stroke="#FF6B35" stroke-width="1.5" filter="url(#glow-filter)"/>
+    <text x="0" y="-4" text-anchor="middle" class="node-tech" fill="#FF6B35">MQ</text>
+    <text x="0" y="18" text-anchor="middle" class="node-label">STREAMING</text>
+    <text x="0" y="28" text-anchor="middle" class="node-tech" fill="#FF6B35" font-size="7px">Kafka · Pub/Sub</text>
+  </g>
+
+  <!-- Arrow + pipe 2→3 -->
+  <line x1="260" y1="130" x2="352" y2="130" stroke="#FF6B35" stroke-width="2" stroke-opacity="0.4" class="pipe-glow" marker-end="url(#arrow)"/>
+  <circle cx="264" cy="130" r="3" fill="#FF6B35" class="packet4" filter="url(#glow-filter)"/>
+  <circle cx="264" cy="130" r="3" fill="#FF6B35" class="packet5" filter="url(#glow-filter)"/>
+  <circle cx="264" cy="130" r="3" fill="#FF6B35" class="packet6" filter="url(#glow-filter)"/>
+
+  <!-- Node 3: Spark -->
+  <g transform="translate(388, 130)">
+    <rect x="-36" y="-28" width="72" height="56" rx="6" fill="#161B22" stroke="#F7931A" stroke-width="1.5" stroke-opacity="0.7"/>
+    <circle cx="0" cy="-8" r="10" fill="#F7931A" opacity="0.15" class="pulse3"/>
+    <circle cx="0" cy="-8" r="10" fill="none" stroke="#F7931A" stroke-width="1.5" filter="url(#glow-filter)"/>
+    <text x="0" y="-4" text-anchor="middle" class="node-tech" fill="#F7931A">⚡</text>
+    <text x="0" y="18" text-anchor="middle" class="node-label">PROCESSING</text>
+    <text x="0" y="28" text-anchor="middle" class="node-tech" fill="#F7931A" font-size="7px">Spark · Beam</text>
+  </g>
+
+  <!-- Arrow + pipe 3→4 -->
+  <line x1="424" y1="130" x2="516" y2="130" stroke="#F7931A" stroke-width="2" stroke-opacity="0.4" class="pipe-glow" marker-end="url(#arrow)"/>
+  <circle cx="428" cy="130" r="3" fill="#F7931A" class="packet7" filter="url(#glow-filter)"/>
+  <circle cx="428" cy="130" r="3" fill="#F7931A" class="packet8" filter="url(#glow-filter)"/>
+
+  <!-- Node 4: Storage -->
+  <g transform="translate(552, 130)">
+    <rect x="-36" y="-28" width="72" height="56" rx="6" fill="#161B22" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.7"/>
+    <circle cx="0" cy="-8" r="10" fill="#8B5CF6" opacity="0.15" class="pulse4"/>
+    <circle cx="0" cy="-8" r="10" fill="none" stroke="#8B5CF6" stroke-width="1.5" filter="url(#glow-filter)"/>
+    <text x="0" y="-4" text-anchor="middle" class="node-tech" fill="#8B5CF6">DB</text>
+    <text x="0" y="18" text-anchor="middle" class="node-label">STORAGE</text>
+    <text x="0" y="28" text-anchor="middle" class="node-tech" fill="#8B5CF6" font-size="7px">S3 · Delta Lake</text>
+  </g>
+
+  <!-- Arrow + pipe 4→5 -->
+  <line x1="588" y1="130" x2="680" y2="130" stroke="#8B5CF6" stroke-width="2" stroke-opacity="0.4" class="pipe-glow" marker-end="url(#arrow)"/>
+  <circle cx="592" cy="130" r="3" fill="#8B5CF6" class="packet9" filter="url(#glow-filter)"/>
+  <circle cx="592" cy="130" r="3" fill="#8B5CF6" class="packet10" filter="url(#glow-filter)"/>
+
+  <!-- Node 5: Serve -->
+  <g transform="translate(716, 130)">
+    <rect x="-36" y="-28" width="72" height="56" rx="6" fill="#161B22" stroke="#3FB950" stroke-width="1.5" stroke-opacity="0.7"/>
+    <circle cx="0" cy="-8" r="10" fill="#3FB950" opacity="0.15" class="pulse5"/>
+    <circle cx="0" cy="-8" r="10" fill="none" stroke="#3FB950" stroke-width="1.5" filter="url(#glow-filter)"/>
+    <text x="0" y="-4" text-anchor="middle" class="node-tech" fill="#3FB950">▶</text>
+    <text x="0" y="18" text-anchor="middle" class="node-label">SERVING</text>
+    <text x="0" y="28" text-anchor="middle" class="node-tech" fill="#3FB950" font-size="7px">Redshift · BQ</text>
+  </g>
+
+  <!-- Metrics bottom row -->
+  <line x1="40" y1="195" x2="820" y2="195" stroke="#21262D" stroke-width="1"/>
+
+  <g transform="translate(110, 225)">
+    <text x="0" y="0" text-anchor="middle" class="metric" filter="url(#glow-filter)">620K+</text>
+    <text x="0" y="18" text-anchor="middle" class="metric-label">DAILY EVENTS</text>
+  </g>
+
+  <line x1="215" y1="205" x2="215" y2="270" stroke="#21262D" stroke-width="1"/>
+
+  <g transform="translate(310, 225)">
+    <text x="0" y="0" text-anchor="middle" class="metric" fill="#FF6B35" filter="url(#glow-filter)">99.97%</text>
+    <text x="0" y="18" text-anchor="middle" class="metric-label">UPTIME</text>
+  </g>
+
+  <line x1="430" y1="205" x2="430" y2="270" stroke="#21262D" stroke-width="1"/>
+
+  <g transform="translate(524, 225)">
+    <text x="0" y="0" text-anchor="middle" class="metric" fill="#F7931A" filter="url(#glow-filter)">&lt;60s</text>
+    <text x="0" y="18" text-anchor="middle" class="metric-label">LATENCY</text>
+  </g>
+
+  <line x1="645" y1="205" x2="645" y2="270" stroke="#21262D" stroke-width="1"/>
+
+  <g transform="translate(752, 225)">
+    <text x="0" y="0" text-anchor="middle" class="metric" fill="#3FB950" filter="url(#glow-filter)">3 CLOUDS</text>
+    <text x="0" y="18" text-anchor="middle" class="metric-label">AWS · GCP · AZURE</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="278" width="860" height="2" fill="url(#pipeGrad)"/>
+</svg>
